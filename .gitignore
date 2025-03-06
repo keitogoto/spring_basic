@@ -7,3 +7,8 @@ logs/
 target/
 application.properties
 application.yml
+
+# Eclipse metadata
+.classpath
+.project
+.settings/
