@@ -12,3 +12,6 @@ application.yml
 .classpath
 .project
 .settings/
+
+# application.properties をGit管理対象外にする
+src/main/resources/application.properties
