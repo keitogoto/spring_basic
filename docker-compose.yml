@@ -6,6 +6,6 @@ services:
     build: .
     ports:
       - "8080:8080"
-    # volumes:
-    #   - .:/app  # これを削除 or コメントアウト
+    volumes:
+      - .:/app
     restart: always
