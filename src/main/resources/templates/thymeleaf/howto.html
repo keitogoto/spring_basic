@@ -10,12 +10,16 @@
 		<h2>ユーティリティオブジェクト</h2>
 		<p th:text="${#dates.format(new java.util.Date(), 'dd/MM/yyyy HH:mm')}"></p>
 		<p th:text="${#numbers.formatInteger(1234, 7)}"></p>
-		<p th:text="${#strings.toUpperCase('Welcome to Spring')}"></p>
+		<p th:text="${#strings.toUpperCase('Welcome to Spring !')}"></p>
 		
 		<p>
 			<span th:if="${param.id != null}" th:text="'id は 「' + ${param.id[0]} + '」'"></span>
 			<span th:if="${param.name != null}" th:text="' name は 「' + ${param.name[0]} + '」ですね。'"></span>
 		</p>
+		
+		<h2>メッセージ式</h2>
+		<p th:text="#{howto.title}"></p>
+		<p th:text="#{howto.message}"></p>
 		
 	</div>
 </body>

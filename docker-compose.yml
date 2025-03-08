@@ -6,6 +6,4 @@ services:
     build: .
     ports:
       - "8080:8080"
-    volumes:
-      - ./src:/app/src  # ソースコードをリアルタイム反映（JAR は影響なし）
     restart: always
