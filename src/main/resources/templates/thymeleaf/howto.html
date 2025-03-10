@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Thymeleafの色々な使い方</title>
+<style th:include="thymeleaf/fragment :: sample_style"></style>
 </head>
 <body>
 	<div class="contents">
@@ -20,6 +21,59 @@
 		<h2>メッセージ式</h2>
 		<p th:text="#{howto.title}"></p>
 		<p th:text="#{howto.message}"></p>
+		
+		<h2>リンク式とhref</h2>
+		<p><a th:text="別のページ" th:href="@{/other-page}"></a></p>
+		<p><a th:text="詳細ページ" th:href="@{/detail/{id}/(id=${user_id})}"></a></p>
+		
+		<h2>洗濯オブジェクトへの変数式</h2>
+		<table th:object="${user}">
+			<tr>
+				<th>名前</th>
+				<td th:text="*{name}"></td>
+			</tr>
+			<tr>
+				<th>年齢</th>
+				<td th:text="*{age}"></td>
+			</tr>
+		</table>
+		
+		<h2>リテラル置換</h2>
+		<p th:object="${user}">
+			<span th:text="|名前は *{name} 、年齢は *{age}才です。|"></span>
+		</p>
+		
+		<h2>HTMLコードの出力</h2>
+		<p th:text="${html}"></p>
+		<P th:utext="${html}"></P>
+		
+		<h2>多岐分岐(th:switch)</h2>
+		<div th:switch="${month}">
+			<p th:case="4" th:text="|${month} - 春|"></p>
+			<p th:case="7" th:text="|${month} - 夏|"></p>
+			<p th:case="10" th:text="|${month} - 秋|"></p>
+			<p th:case="1" th:text="|${month} - 冬|"></p>
+			<p th:case="*" th:text="|${month} - ？？？|"></p>
+		</div>
+		
+		<h2>くり返し（th:each)</h2>
+		<table>
+			<tr>
+				<th>名前</th>
+				<th>年齢</th>
+			</tr>
+			<tr th:each="data : ${users}" th:object="${data}">
+				<td th:text="*{name}"></td>
+				<td th:text="*{age}"></td>
+			</tr>
+		</table>
+		
+		<h2>テンプレートフラグメント</h2>
+		<div th:include="thymeleaf/fragment :: sample_contents">
+			<h2>howto.html</h2>
+			<p>これは元から存在するコンテンツです</p>
+			<p>元のサンプルメッセージ</p>
+		</div>
 		
 	</div>
 </body>

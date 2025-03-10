@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>テンプレートフラグメント</title>
+<style th:fragment="sample_style">
+	.contets{
+		width:80%;
+		margin: 0 auto;
+	}
+	h2{
+		margin-top:2em;
+		border-bottom:1px solid black;
+	}
+</style>
+</head>
+<body>
+	<h1>テンプレートフラグメント</h1>
+	<div th:fragment="sample_contents">
+		<h2>fragment.html</h2>
+		<p>これはフラグメントコンテンツです</p>
+		<p>サンプルメッセージ</p>
+	</div>
+</body>
+</html>
